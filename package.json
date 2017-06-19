@@ -2,7 +2,10 @@
   "name": "md-directory",
   "version": "0.0.1",
   "description": "Convert a directory of Markdown files to HTML",
+   "keywords": ["markdown", "browserify", "inline", "convert", "frontmatter", "brfs"],
   "main": "index.js",
+  "repository": "s3ththompson/md-directory",
+  "author": "Seth Thompson <s3th.thompson@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build:docs": "documentation readme index.js -s API",
