@@ -64,7 +64,6 @@ test('async: custom transform', function(t) {
     function(err, contents) {
       t.notOk(err);
       t.ok(contents);
-      console.log(contents);
       t.equal(contents['a'].custom, 'baz');
       t.end();
     }
