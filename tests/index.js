@@ -83,6 +83,31 @@ test('sync: custom transform', function(t) {
   t.end();
 });
 
+test('dir: show original', function(t) {
+  md.parseDir(
+    path.join(__dirname, 'files'),
+    {
+      original: true
+    },
+    function(err, contents) {
+      t.notOk(err);
+      t.ok(contents);
+      t.ok(contents['a'].orig);
+      t.end();
+    }
+  );
+});
+
+test('file: show original', function(t) {
+  var contents = md.parseDirSync(path.join(__dirname, 'files'), {
+    original: true
+  });
+  t.ok(contents);
+  t.equal(typeof contents, 'object');
+  t.ok(contents['a'].orig);
+  t.end();
+});
+
 test('async: convert file', function(t) {
   md.parse(path.join(__dirname, 'files', 'a.md'), function(err, contents) {
     t.notOk(err);
