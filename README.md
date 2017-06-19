@@ -1,6 +1,6 @@
 # md-directory
 
-[![npm version](https://img.shields.io/npm/v/md-directory.svg?style=flat-square)](https://npmjs.org/package/md-directory) [![build status](https://img.shields.io/travis/s3ththompson/md-directory/master.svg?style=flat-square)](https://travis-ci.org/s3ththompson/md-directory)
+[![npm version](https://img.shields.io/npm/v/md-directory.svg?style=flat-square)](https://npmjs.org/package/md-directory) [![build status](https://img.shields.io/travis/s3ththompson/md-directory/master.svg?style=flat-square)](https://travis-ci.org/s3ththompson/md-directory) [![stability](https://img.shields.io/badge/stability-experimental-orange.svg?style=flat-square)](https://nodejs.org/api/documentation.html#documentation_stability_index)
 
 Convert a directory of Markdown files to HTML.
 
