@@ -1,7 +1,7 @@
 {
   "name": "md-directory",
   "version": "0.0.1",
-  "description": "Convert a directory of Markdown files to html",
+  "description": "Convert a directory of Markdown files to HTML",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
