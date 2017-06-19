@@ -1,4 +1,5 @@
 # md-directory
+
 [![npm version](https://img.shields.io/npm/v/md-directory.svg?style=flat-square)](https://npmjs.org/package/md-directory) [![build status](https://img.shields.io/travis/s3ththompson/md-directory/master.svg?style=flat-square)](https://travis-ci.org/s3ththompson/md-directory)
 
 Convert a directory of Markdown files to HTML.
@@ -86,16 +87,15 @@ Read the contents of a directory and convert to Markdown asynchronously
 **Parameters**
 
 -   `dir` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – The directory to read
--   `opts`  
+-   `opts` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+    -   `opts.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
+    -   `opts.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
+    -   `opts.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
+    -   `opts.filter` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for filtering files, default: `**\/*.md`
+    -   `opts.ignore` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for ignoring files
+    -   `opts.ignore` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** – array of glob patterns for ignoring files
+    -   `opts.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 -   `cb`  
--   `options` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `options.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
-    -   `options.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
-    -   `options.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
-    -   `options.filter` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for filtering files, default: `**\/*.md`
-    -   `options.ignore` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for ignoring files
-    -   `options.ignore` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** – array of glob patterns for ignoring files
-    -   `options.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 
 **Examples**
 
@@ -113,15 +113,14 @@ Read the contents of a directory and convert to Markdown synchronously
 **Parameters**
 
 -   `dir` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – The directory to read
--   `opts`  
--   `options` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `options.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
-    -   `options.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
-    -   `options.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
-    -   `options.filter` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for filtering files, default: `**\/*.md`
-    -   `options.ignore` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for ignoring files
-    -   `options.ignore` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** – array of glob patterns for ignoring files
-    -   `options.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
+-   `opts` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+    -   `opts.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
+    -   `opts.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
+    -   `opts.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
+    -   `opts.filter` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for filtering files, default: `**\/*.md`
+    -   `opts.ignore` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for ignoring files
+    -   `opts.ignore` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** – array of glob patterns for ignoring files
+    -   `opts.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 
 **Examples**
 
@@ -137,13 +136,12 @@ Read the contents of a file and convert to Markdown asynchronously
 **Parameters**
 
 -   `filename` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – The filename to read
--   `opts`  
+-   `opts` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+    -   `opts.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
+    -   `opts.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
+    -   `opts.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
+    -   `opts.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 -   `cb`  
--   `options` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `options.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
-    -   `options.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
-    -   `options.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
-    -   `options.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 
 **Examples**
 
@@ -161,12 +159,11 @@ Read the contents of a file and convert to Markdown synchronously
 **Parameters**
 
 -   `filename` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – The filename to read
--   `opts`  
--   `options` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
-    -   `options.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
-    -   `options.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
-    -   `options.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
-    -   `options.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
+-   `opts` **[Object](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)** 
+    -   `opts.md` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse markdown, default: commonmark
+    -   `opts.frontmatter` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** alternate function to parse frontmatter, default: gray-matter
+    -   `opts.encoding` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – encoding of files, default: utf8
+    -   `opts.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 
 **Examples**
 
@@ -177,8 +174,8 @@ var contents = md.parseSync('./post.md')
 
 ## See also
 
-* [sethvincent/read-directory](https://github.com/sethvincent/read-directory)
-* [substack/brfs](https://github.com/substack/brfs)
+-   [sethvincent/read-directory](https://github.com/sethvincent/read-directory)
+-   [substack/brfs](https://github.com/substack/brfs)
 
 ## License
 
