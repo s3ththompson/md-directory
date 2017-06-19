@@ -1,0 +1,4 @@
+---
+title: foo
+---
+bar1

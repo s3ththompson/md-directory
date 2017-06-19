@@ -1,13 +1,14 @@
 const read = require('read-directory');
-var defaults = require('defaults');
-var compose = require('lodash/flow');
-var commonmark = require('commonmark');
-var matter = require('gray-matter');
+const defaults = require('defaults');
+const compose = require('lodash/flow');
+const commonmark = require('commonmark');
+const matter = require('gray-matter');
+const fs = require('fs');
 
 var reader = new commonmark.Parser();
 var writer = new commonmark.HtmlRenderer();
 
-function markdown (str) {
+function markdown(str) {
   var parsed = reader.parse(str);
   return writer.render(parsed);
 }
@@ -17,13 +18,13 @@ var mdOptions = {
   frontmatter: matter,
   filter: '**/*.md',
   encoding: 'utf8'
-}
+};
 
 function parseContent(markdown) {
-  return function (obj) {
+  return function(obj) {
     obj.content = markdown(obj.content);
-    return obj
-  }
+    return obj;
+  };
 }
 
 /**
@@ -44,19 +45,19 @@ function parseContent(markdown) {
 *   console.log(contents)
 * })
 **/
-module.exports.parseDir = function parseDir (dir, opts, cb) {
+module.exports.parseDir = function parseDir(dir, opts, cb) {
   if (typeof opts === 'function') {
-    cb = opts
-    opts = {}
+    cb = opts;
+    opts = {};
   }
-  opts = defaults(opts, mdOptions)
+  opts = defaults(opts, mdOptions);
   var transforms = [opts.frontmatter, parseContent(opts.md)];
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
   opts.extensions = true;
   opts.dirnames = true;
   read(dir, opts, cb);
-}
+};
 
 /**
 * Read the contents of a directory and convert to Markdown synchronously
@@ -74,15 +75,15 @@ module.exports.parseDir = function parseDir (dir, opts, cb) {
 * var md = require('md-directory')
 * var contents = md.parseDirSync('./posts')
 **/
-module.exports.parseDirSync = function parseDirSync (dir, opts) {
-  opts = defaults(opts, mdOptions)
+module.exports.parseDirSync = function parseDirSync(dir, opts) {
+  opts = defaults(opts, mdOptions);
   var transforms = [opts.frontmatter, parseContent(opts.md)];
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
   opts.extensions = true;
   opts.dirnames = true;
   return read.sync(dir, opts);
-}
+};
 
 /**
 * Read the contents of a file and convert to Markdown asynchronously
@@ -99,21 +100,21 @@ module.exports.parseDirSync = function parseDirSync (dir, opts) {
 *   console.log(contents)
 * })
 **/
-module.exports.parse = function parse (filename, opts, cb) {
+module.exports.parse = function parse(filename, opts, cb) {
   if (typeof opts === 'function') {
-    cb = opts
-    opts = {}
+    cb = opts;
+    opts = {};
   }
   opts = defaults(opts, mdOptions);
   var transforms = [opts.frontmatter, parseContent(opts.md)];
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
-  fs.readFile(filename, {encoding: opts.encoding}, function (err, data) {
+  fs.readFile(filename, { encoding: opts.encoding }, function(err, data) {
     if (err) return cb(err);
     var data = opts.transform(data);
     cb(null, data);
   });
-}
+};
 
 /**
 * Read the contents of a file and convert to Markdown synchronously
@@ -128,11 +129,11 @@ module.exports.parse = function parse (filename, opts, cb) {
 * var md = require('md-directory')
 * var contents = md.parseSync('./post.md')
 **/
-module.exports.parseSync = function parseSync (filename, opts) {
+module.exports.parseSync = function parseSync(filename, opts) {
   opts = defaults(opts, mdOptions);
   var transforms = [opts.frontmatter, parseContent(opts.md)];
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
-  var data = fs.readFileSync(filename, {encoding: opts.encoding});
-  return opts.transform(data)
-}
+  var data = fs.readFileSync(filename, { encoding: opts.encoding });
+  return opts.transform(data);
+};

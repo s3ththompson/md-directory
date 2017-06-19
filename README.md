@@ -1,4 +1,5 @@
 # md-directory
+[![npm version](https://img.shields.io/npm/v/md-directory.svg?style=flat-square)](https://npmjs.org/package/md-directory) [![build status](https://img.shields.io/travis/s3ththompson/md-directory/master.svg?style=flat-square)](https://travis-ci.org/s3ththompson/md-directory)
 
 Convert a directory of Markdown files to HTML.
 
@@ -173,6 +174,11 @@ Read the contents of a file and convert to Markdown synchronously
 var md = require('md-directory')
 var contents = md.parseSync('./post.md')
 ```
+
+## See also
+
+* [sethvincent/read-directory](https://github.com/sethvincent/read-directory)
+* [substack/brfs](https://github.com/substack/brfs)
 
 ## License
 
