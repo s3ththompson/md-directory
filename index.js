@@ -34,10 +34,12 @@ function parseContent(markdown) {
 * @param {Object} opts
 * @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
 * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: utf8
+* @param {String} opts.encoding – encoding of files, default: `utf8`
 * @param {String} opts.filter – glob pattern for filtering files, default: `**\/*.md`
 * @param {String} opts.ignore – glob pattern for ignoring files
 * @param {Array} opts.ignore – array of glob patterns for ignoring files
+* @param {Boolean} opts.extensions – include or exclude file extensions in keys of returned object, default: `false`
+* @param {Boolean} opts.dirnames – include or exclude subdirectory names in keys of returned object, default: `false`
 * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
 * @example
 * var md = require('md-directory')
@@ -54,8 +56,6 @@ module.exports.parseDir = function parseDir(dir, opts, cb) {
   var transforms = [opts.frontmatter, parseContent(opts.md)];
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
-  opts.extensions = true;
-  opts.dirnames = true;
   read(dir, opts, cb);
 };
 
@@ -66,10 +66,12 @@ module.exports.parseDir = function parseDir(dir, opts, cb) {
 * @param {Object} opts
 * @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
 * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: utf8
+* @param {String} opts.encoding – encoding of files, default: `utf8`
 * @param {String} opts.filter – glob pattern for filtering files, default: `**\/*.md`
 * @param {String} opts.ignore – glob pattern for ignoring files
 * @param {Array} opts.ignore – array of glob patterns for ignoring files
+* @param {Boolean} opts.extensions – include or exclude file extensions in keys of returned object, default: `false`
+* @param {Boolean} opts.dirnames – include or exclude subdirectory names in keys of returned object, default: `false`
 * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
 * @example
 * var md = require('md-directory')
@@ -80,8 +82,6 @@ module.exports.parseDirSync = function parseDirSync(dir, opts) {
   var transforms = [opts.frontmatter, parseContent(opts.md)];
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
-  opts.extensions = true;
-  opts.dirnames = true;
   return read.sync(dir, opts);
 };
 
@@ -92,7 +92,7 @@ module.exports.parseDirSync = function parseDirSync(dir, opts) {
 * @param {Object} opts
 * @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
 * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: utf8
+* @param {String} opts.encoding – encoding of files, default: `utf8`
 * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
 * @example
 * var md = require('md-directory')
@@ -123,7 +123,7 @@ module.exports.parse = function parse(filename, opts, cb) {
 * @param {Object} opts
 * @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
 * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: utf8
+* @param {String} opts.encoding – encoding of files, default: `utf8`
 * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
 * @example
 * var md = require('md-directory')
