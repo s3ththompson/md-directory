@@ -72,7 +72,7 @@ browserify index.js -t md-directory/transform -o bundle.js
 ### Output
 
 ```js
-var contents = {"hi.md":{"data":{"title":"foo"},"content":"<h1>bar</h1>\n"}};
+var contents = {"hi":{"data":{"title":"foo"},"content":"<h1>bar</h1>\n"}};
 ```
 
 Note: to use this transform, the path to the file directory can not be a variable. If you use the async methods, the callback must be an ES5 function (not an ES6 arrow function) and the results will be inlined with `process.nextTick`. See [brfs](https://github.com/substack/brfs#async) for more details on this behavior.
