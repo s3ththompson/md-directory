@@ -1,6 +1,6 @@
 {
   "name": "md-directory",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Convert a directory of Markdown files to HTML",
   "keywords": [
     "markdown",
