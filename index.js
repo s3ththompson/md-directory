@@ -34,26 +34,26 @@ function removeOriginal(obj) {
 }
 
 /**
-* Read the contents of a directory and convert to Markdown asynchronously
-* @name parseDir
-* @param {String} dir – The directory to read
-* @param {Object} opts
-* @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
-* @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: `utf8`
-* @param {String} opts.filter – glob pattern for filtering files, default: `**\/*.md`
-* @param {String} opts.ignore – glob pattern for ignoring files
-* @param {Array} opts.ignore – array of glob patterns for ignoring files
-* @param {Boolean} opts.extensions – include or exclude file extensions in keys of returned object, default: `false`
-* @param {Boolean} opts.dirnames – include or exclude subdirectory names in keys of returned object, default: `false`
-* @param {Boolean} opts.original – include original file contents in returned object, default: `false`
-* @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
-* @example
-* var md = require('md-directory')
-* md.parseDir('./posts', function (err, contents) {
-*   console.log(contents)
-* })
-**/
+ * Read the contents of a directory and convert to Markdown asynchronously
+ * @name parseDir
+ * @param {String} dir – The directory to read
+ * @param {Object} opts
+ * @param {Function} opts.md - alternate function to parse markdown, default: commonmark
+ * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
+ * @param {String} opts.encoding – encoding of files, default: `utf8`
+ * @param {String} opts.filter – glob pattern for filtering files, default: `**\/*.md`
+ * @param {String} opts.ignore – glob pattern for ignoring files
+ * @param {Array} opts.ignore – array of glob patterns for ignoring files
+ * @param {Boolean} opts.extensions – include or exclude file extensions in keys of returned object, default: `false`
+ * @param {Boolean} opts.dirnames – include or exclude subdirectory names in keys of returned object, default: `false`
+ * @param {Boolean} opts.original – include original file contents in returned object, default: `false`
+ * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
+ * @example
+ * var md = require('md-directory')
+ * md.parseDir('./posts', function (err, contents) {
+ *   console.log(contents)
+ * })
+ **/
 module.exports.parseDir = function parseDir(dir, opts, cb) {
   if (typeof opts === 'function') {
     cb = opts;
@@ -68,24 +68,24 @@ module.exports.parseDir = function parseDir(dir, opts, cb) {
 };
 
 /**
-* Read the contents of a directory and convert to Markdown synchronously
-* @name parseDirSync
-* @param {String} dir – The directory to read
-* @param {Object} opts
-* @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
-* @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: `utf8`
-* @param {String} opts.filter – glob pattern for filtering files, default: `**\/*.md`
-* @param {String} opts.ignore – glob pattern for ignoring files
-* @param {Array} opts.ignore – array of glob patterns for ignoring files
-* @param {Boolean} opts.extensions – include or exclude file extensions in keys of returned object, default: `false`
-* @param {Boolean} opts.dirnames – include or exclude subdirectory names in keys of returned object, default: `false`
-* @param {Boolean} opts.original – include original file contents in returned object, default: `false`
-* @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
-* @example
-* var md = require('md-directory')
-* var contents = md.parseDirSync('./posts')
-**/
+ * Read the contents of a directory and convert to Markdown synchronously
+ * @name parseDirSync
+ * @param {String} dir – The directory to read
+ * @param {Object} opts
+ * @param {Function} opts.md - alternate function to parse markdown, default: commonmark
+ * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
+ * @param {String} opts.encoding – encoding of files, default: `utf8`
+ * @param {String} opts.filter – glob pattern for filtering files, default: `**\/*.md`
+ * @param {String} opts.ignore – glob pattern for ignoring files
+ * @param {Array} opts.ignore – array of glob patterns for ignoring files
+ * @param {Boolean} opts.extensions – include or exclude file extensions in keys of returned object, default: `false`
+ * @param {Boolean} opts.dirnames – include or exclude subdirectory names in keys of returned object, default: `false`
+ * @param {Boolean} opts.original – include original file contents in returned object, default: `false`
+ * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
+ * @example
+ * var md = require('md-directory')
+ * var contents = md.parseDirSync('./posts')
+ **/
 module.exports.parseDirSync = function parseDirSync(dir, opts) {
   opts = defaults(opts, mdOptions);
   var transforms = [opts.frontmatter, parseContent(opts.md)];
@@ -96,21 +96,21 @@ module.exports.parseDirSync = function parseDirSync(dir, opts) {
 };
 
 /**
-* Read the contents of a file and convert to Markdown asynchronously
-* @name parse
-* @param {String} filename – The filename to read
-* @param {Object} opts
-* @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
-* @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: `utf8`
-* @param {Boolean} opts.original – include original file contents in returned object, default: `false`
-* @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
-* @example
-* var md = require('md-directory')
-* md.parse('./post.md', function (err, contents) {
-*   console.log(contents)
-* })
-**/
+ * Read the contents of a file and convert to Markdown asynchronously
+ * @name parse
+ * @param {String} filename – The filename to read
+ * @param {Object} opts
+ * @param {Function} opts.md - alternate function to parse markdown, default: commonmark
+ * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
+ * @param {String} opts.encoding – encoding of files, default: `utf8`
+ * @param {Boolean} opts.original – include original file contents in returned object, default: `false`
+ * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
+ * @example
+ * var md = require('md-directory')
+ * md.parse('./post.md', function (err, contents) {
+ *   console.log(contents)
+ * })
+ **/
 module.exports.parse = function parse(filename, opts, cb) {
   if (typeof opts === 'function') {
     cb = opts;
@@ -129,19 +129,19 @@ module.exports.parse = function parse(filename, opts, cb) {
 };
 
 /**
-* Read the contents of a file and convert to Markdown synchronously
-* @name parseSync
-* @param {String} filename – The filename to read
-* @param {Object} opts
-* @param {Function} opts.md - alternate function to parse markdown, default: commonmark 
-* @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
-* @param {String} opts.encoding – encoding of files, default: `utf8`
-* @param {Boolean} opts.original – include original file contents in returned object, default: `false`
-* @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
-* @example
-* var md = require('md-directory')
-* var contents = md.parseSync('./post.md')
-**/
+ * Read the contents of a file and convert to Markdown synchronously
+ * @name parseSync
+ * @param {String} filename – The filename to read
+ * @param {Object} opts
+ * @param {Function} opts.md - alternate function to parse markdown, default: commonmark
+ * @param {Function} opts.frontmatter - alternate function to parse frontmatter, default: gray-matter
+ * @param {String} opts.encoding – encoding of files, default: `utf8`
+ * @param {Boolean} opts.original – include original file contents in returned object, default: `false`
+ * @param {Function} opts.transform – A function you can use to transform the contents of files after they are converted
+ * @example
+ * var md = require('md-directory')
+ * var contents = md.parseSync('./post.md')
+ **/
 module.exports.parseSync = function parseSync(filename, opts) {
   opts = defaults(opts, mdOptions);
   var transforms = [opts.frontmatter, parseContent(opts.md)];

@@ -40,7 +40,7 @@ returns:
 
 ```js
 {
-  "hi": {
+  "hi.md": {
     "data": {
       "title": "foo"
     },
@@ -49,7 +49,7 @@ returns:
 }
 ```
 
-Per the default settings of [read-directory](https://github.com/sethvincent/read-directory), file extensions and subdirectory names are excluded from the keys of the returned object. This behavior can be toggled via `opts.extensions` and `opts.dirnames`.
+Since version 1.0, `md-directory` no longer supports the `extensions` option since it was dropped by [read-directory](https://github.com/sethvincent/read-directory).
 
 ## Inlining results with Browserify
 
@@ -95,7 +95,6 @@ Read the contents of a directory and convert to Markdown asynchronously
     -   `opts.filter` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for filtering files, default: `**\/*.md`
     -   `opts.ignore` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for ignoring files
     -   `opts.ignore` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** – array of glob patterns for ignoring files
-    -   `opts.extensions` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** – include or exclude file extensions in keys of returned object, default: `false`
     -   `opts.dirnames` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** – include or exclude subdirectory names in keys of returned object, default: `false`
     -   `opts.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 -   `cb`  
@@ -123,7 +122,6 @@ Read the contents of a directory and convert to Markdown synchronously
     -   `opts.filter` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for filtering files, default: `**\/*.md`
     -   `opts.ignore` **[String](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)** – glob pattern for ignoring files
     -   `opts.ignore` **[Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)** – array of glob patterns for ignoring files
-    -   `opts.extensions` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** – include or exclude file extensions in keys of returned object, default: `false`
     -   `opts.dirnames` **[Boolean](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)** – include or exclude subdirectory names in keys of returned object, default: `false`
     -   `opts.transform` **[Function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/function)** – A function you can use to transform the contents of files after they are converted
 
