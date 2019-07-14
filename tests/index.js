@@ -10,7 +10,6 @@ test('async: convert dir', function(t) {
     t.ok(contents);
     t.equal(typeof contents, 'object');
     t.equal(Object.keys(contents).length, 3);
-    console.log(contents);
     t.equal(contents['a.md'].data.title, 'foo');
     t.equal(contents['a.md'].content, '<p>bar1</p>\n');
     t.end();
