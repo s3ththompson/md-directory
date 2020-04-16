@@ -18,11 +18,11 @@ var mdOptions = {
   frontmatter: matter,
   filter: '**/*.md',
   encoding: 'utf8',
-  original: false
+  original: false,
 };
 
 function parseContent(markdown) {
-  return function(obj) {
+  return function (obj) {
     obj.content = markdown(obj.content);
     return obj;
   };
@@ -121,7 +121,7 @@ module.exports.parse = function parse(filename, opts, cb) {
   if (!opts.original) transforms.push(removeOriginal);
   if (opts.transform) transforms.push(opts.transform);
   opts.transform = compose(transforms);
-  fs.readFile(filename, { encoding: opts.encoding }, function(err, data) {
+  fs.readFile(filename, { encoding: opts.encoding }, function (err, data) {
     if (err) return cb(err);
     var data = opts.transform(data);
     cb(null, data);

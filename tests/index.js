@@ -4,8 +4,8 @@ const browserify = require('browserify');
 const _eval = require('eval');
 const md = require('../');
 
-test('async: convert dir', function(t) {
-  md.parseDir(path.join(__dirname, 'files'), function(err, contents) {
+test('async: convert dir', function (t) {
+  md.parseDir(path.join(__dirname, 'files'), function (err, contents) {
     t.notOk(err);
     t.ok(contents);
     t.equal(typeof contents, 'object');
@@ -16,7 +16,7 @@ test('async: convert dir', function(t) {
   });
 });
 
-test('sync: convert dir', function(t) {
+test('sync: convert dir', function (t) {
   var contents = md.parseDirSync(path.join(__dirname, 'files'));
   t.ok(contents);
   t.equal(typeof contents, 'object');
@@ -26,13 +26,13 @@ test('sync: convert dir', function(t) {
   t.end();
 });
 
-test('async: custom filter', function(t) {
+test('async: custom filter', function (t) {
   md.parseDir(
     path.join(__dirname, 'files'),
     {
-      filter: '**/*.markdown'
+      filter: '**/*.markdown',
     },
-    function(err, contents) {
+    function (err, contents) {
       t.notOk(err);
       t.ok(contents);
       t.equal(typeof contents, 'object');
@@ -42,9 +42,9 @@ test('async: custom filter', function(t) {
   );
 });
 
-test('sync: custom filter', function(t) {
+test('sync: custom filter', function (t) {
   var contents = md.parseDirSync(path.join(__dirname, 'files'), {
-    filter: '**/*.markdown'
+    filter: '**/*.markdown',
   });
   t.ok(contents);
   t.equal(typeof contents, 'object');
@@ -52,16 +52,16 @@ test('sync: custom filter', function(t) {
   t.end();
 });
 
-test('async: custom transform', function(t) {
+test('async: custom transform', function (t) {
   md.parseDir(
     path.join(__dirname, 'files'),
     {
-      transform: function(contents) {
+      transform: function (contents) {
         contents.custom = 'baz';
         return contents;
-      }
+      },
     },
-    function(err, contents) {
+    function (err, contents) {
       t.notOk(err);
       t.ok(contents);
       t.equal(contents['a.md'].custom, 'baz');
@@ -70,12 +70,12 @@ test('async: custom transform', function(t) {
   );
 });
 
-test('sync: custom transform', function(t) {
+test('sync: custom transform', function (t) {
   var contents = md.parseDirSync(path.join(__dirname, 'files'), {
-    transform: function(contents) {
+    transform: function (contents) {
       contents.custom = 'baz';
       return contents;
-    }
+    },
   });
   t.ok(contents);
   t.equal(typeof contents, 'object');
@@ -83,13 +83,13 @@ test('sync: custom transform', function(t) {
   t.end();
 });
 
-test('dir: show original', function(t) {
+test('dir: show original', function (t) {
   md.parseDir(
     path.join(__dirname, 'files'),
     {
-      original: true
+      original: true,
     },
-    function(err, contents) {
+    function (err, contents) {
       t.notOk(err);
       t.ok(contents);
       t.ok(contents['a.md'].orig);
@@ -98,9 +98,9 @@ test('dir: show original', function(t) {
   );
 });
 
-test('file: show original', function(t) {
+test('file: show original', function (t) {
   var contents = md.parseDirSync(path.join(__dirname, 'files'), {
-    original: true
+    original: true,
   });
   t.ok(contents);
   t.equal(typeof contents, 'object');
@@ -108,8 +108,8 @@ test('file: show original', function(t) {
   t.end();
 });
 
-test('async: convert file', function(t) {
-  md.parse(path.join(__dirname, 'files', 'a.md'), function(err, contents) {
+test('async: convert file', function (t) {
+  md.parse(path.join(__dirname, 'files', 'a.md'), function (err, contents) {
     t.notOk(err);
     t.ok(contents);
     t.equal(contents.data.title, 'foo');
@@ -118,7 +118,7 @@ test('async: convert file', function(t) {
   });
 });
 
-test('sync: convert file', function(t) {
+test('sync: convert file', function (t) {
   var contents = md.parseSync(path.join(__dirname, 'files', 'a.md'));
   t.ok(contents);
   t.equal(contents.data.title, 'foo');
@@ -126,11 +126,11 @@ test('sync: convert file', function(t) {
   t.end();
 });
 
-test('transform for the browser', function(t) {
+test('transform for the browser', function (t) {
   var b = browserify(path.join(__dirname, 'source.js'));
   b.on('error', t.notOk);
   b.transform(require('../transform'));
-  b.bundle(function(err, buf) {
+  b.bundle(function (err, buf) {
     t.notOk(err);
     t.ok(buf);
     var bundle = buf.toString('utf8');

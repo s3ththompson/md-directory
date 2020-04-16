@@ -9,13 +9,13 @@ module.exports = function mdDirectoryTransform(filename) {
   var basedir = path.dirname(filename);
   var vars = {
     __filename: filename,
-    __dirname: basedir
+    __dirname: basedir,
   };
 
   var sm = staticModule(
     {
       'md-directory': {
-        parseDir: function(dir, opts, cb) {
+        parseDir: function (dir, opts, cb) {
           if (typeof opts === 'function') {
             cb = opts;
             opts = {};
@@ -28,14 +28,14 @@ module.exports = function mdDirectoryTransform(filename) {
           stream.push(null);
           return stream;
         },
-        parseDirSync: function(dir, opts) {
+        parseDirSync: function (dir, opts) {
           dir = path.isAbsolute(dir) ? dir : path.resolve(dir);
           var stream = through();
           stream.push(JSON.stringify(md.parseDirSync(dir, opts)));
           stream.push(null);
           return stream;
         },
-        parse: function(filename, opts, cb) {
+        parse: function (filename, opts, cb) {
           if (typeof opts === 'function') {
             cb = opts;
             opts = {};
@@ -50,7 +50,7 @@ module.exports = function mdDirectoryTransform(filename) {
           stream.push(null);
           return stream;
         },
-        parseSync: function(filename, opts) {
+        parseSync: function (filename, opts) {
           filename = path.isAbsolute(filename)
             ? filename
             : path.resolve(filename);
@@ -58,8 +58,8 @@ module.exports = function mdDirectoryTransform(filename) {
           stream.push(JSON.stringify(md.parseSync(filename, opts)));
           stream.push(null);
           return stream;
-        }
-      }
+        },
+      },
     },
     { vars: vars, varModules: { path: path } }
   );
